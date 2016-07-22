@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="org.chzz.photo">
+
+    <uses-sdk tools:overrideLibrary="org.xutils" />
+
+    <application>
+        <!--图片预览界面-->
+        <activity
+            android:name=".activity.CHZZPhotoPreviewActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/CHZZPPTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!--图片选择界面-->
+        <activity
+            android:name=".activity.CHZZPhotoPickerActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/CHZZPPTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <!--图片选择预览界面-->
+        <activity
+            android:name=".activity.CHZZPhotoPickerPreviewActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/CHZZPPTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+    </application>
+
+</manifest>
