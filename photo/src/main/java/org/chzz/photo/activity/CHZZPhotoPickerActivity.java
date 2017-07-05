@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import org.chzz.adapter.CHZZOnItemChildClickListener;
 import org.chzz.photo.R;
 import org.chzz.photo.adapter.CHZZPhotoPickerAdapter;
@@ -341,7 +343,7 @@ public class CHZZPhotoPickerActivity extends CHZZPPToolbarActivity implements CH
                 if (TextUtils.equals(selectedImage, currentImage)) {
                     mPicAdapter.notifyItemChanged(position);
                 } else {
-                    int preSelectedImagePosition = mPicAdapter.getDatas().indexOf(selectedImage);
+                    int preSelectedImagePosition = mPicAdapter.getData().indexOf(selectedImage);
                     mPicAdapter.notifyItemChanged(preSelectedImagePosition);
                     mPicAdapter.getSelectedImages().add(currentImage);
                     mPicAdapter.notifyItemChanged(position);
@@ -408,7 +410,7 @@ public class CHZZPhotoPickerActivity extends CHZZPPToolbarActivity implements CH
         if (mCurrentImageFolderModel.isTakePhotoEnabled()) {
             currentPosition--;
         }
-        startActivityForResult(CHZZPhotoPickerPreviewActivity.newIntent(this, mMaxChooseCount, mPicAdapter.getSelectedImages(), (ArrayList<String>) mPicAdapter.getDatas(), currentPosition, false), REQUEST_CODE_PREVIEW);
+        startActivityForResult(CHZZPhotoPickerPreviewActivity.newIntent(this, mMaxChooseCount, mPicAdapter.getSelectedImages(), (ArrayList<String>) mPicAdapter.getData(), currentPosition, false), REQUEST_CODE_PREVIEW);
     }
 
     private void reloadPhotos(int position) {
@@ -445,9 +447,9 @@ public class CHZZPhotoPickerActivity extends CHZZPPToolbarActivity implements CH
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         dismissLoadingDialog();
         cancelLoadPhotoTask();
-
         mTitleTv = null;
         mArrowIv = null;
         mSubmitTv = null;
@@ -455,10 +457,13 @@ public class CHZZPhotoPickerActivity extends CHZZPPToolbarActivity implements CH
         mCurrentImageFolderModel = null;
         mTopRightBtnText = null;
         mImageFolderModels = null;
+        mPicAdapter.getData().clear();
+        mPicAdapter.notifyDataSetChanged();
         mPicAdapter = null;
         mImageCaptureManager = null;
         mPhotoFolderPw = null;
+        Glide.get(this).clearMemory();
 
-        super.onDestroy();
+
     }
 }

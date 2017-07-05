@@ -67,7 +67,7 @@ public class CHZZPhotoFolderPw extends CHZZBasePopupWindow implements CHZZOnRVIt
      * @param datas
      */
     public void setData(ArrayList<CHZZImageFolderModel> datas) {
-        mFolderAdapter.setDatas(datas);
+        mFolderAdapter.setData(datas);
     }
 
     @Override
@@ -122,9 +122,9 @@ public class CHZZPhotoFolderPw extends CHZZBasePopupWindow implements CHZZOnRVIt
         private int mImageHeight;
 
         public FolderAdapter(RecyclerView recyclerView) {
-            super(recyclerView, R.layout.chzz_pp_item_photo_folder);
+            super(recyclerView, R.layout.chzz_pp_item_photo_folder,null,null,null,null);
 
-            mDatas = new ArrayList<>();
+            mData = new ArrayList<>();
             mImageWidth = CHZZPhotoPickerUtil.getScreenWidth(mActivity) / 10;
             mImageHeight = mImageWidth;
         }

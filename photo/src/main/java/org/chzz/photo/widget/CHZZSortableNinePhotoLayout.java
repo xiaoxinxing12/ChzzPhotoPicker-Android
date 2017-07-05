@@ -109,7 +109,7 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
             throw new RuntimeException("请先调用init方法进行初始化");
         }
 
-        mPhotoAdapter.setDatas(photos);
+        mPhotoAdapter.setData(photos);
         updateHeight();
     }
 
@@ -138,7 +138,7 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
      * @return
      */
     public ArrayList<String> getDatas() {
-        return (ArrayList<String>) mPhotoAdapter.getDatas();
+        return (ArrayList<String>) mPhotoAdapter.getData();
     }
 
     /**
@@ -157,13 +157,13 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
      * @return
      */
     public int getItemCount() {
-        return mPhotoAdapter.getDatas().size();
+        return mPhotoAdapter.getData().size();
     }
 
     @Override
     public void onItemChildClick(ViewGroup parent, View childView, int position) {
         if (mDelegate != null) {
-            mDelegate.onClickDeleteNinePhotoItem(this, childView, position, mPhotoAdapter.getItem(position), (ArrayList<String>) mPhotoAdapter.getDatas());
+            mDelegate.onClickDeleteNinePhotoItem(this, childView, position, mPhotoAdapter.getItem(position), (ArrayList<String>) mPhotoAdapter.getData());
         }
     }
 
@@ -171,11 +171,11 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
     public void onRVItemClick(ViewGroup parent, View itemView, int position) {
         if (mPhotoAdapter.isPlusItem(position)) {
             if (mDelegate != null) {
-                mDelegate.onClickAddNinePhotoItem(this, itemView, position, (ArrayList<String>) mPhotoAdapter.getDatas());
+                mDelegate.onClickAddNinePhotoItem(this, itemView, position, (ArrayList<String>) mPhotoAdapter.getData());
             }
         } else {
             if (mDelegate != null && ViewCompat.getScaleX(itemView) <= 1.0f) {
-                mDelegate.onClickNinePhotoItem(this, itemView, position, mPhotoAdapter.getItem(position), (ArrayList<String>) mPhotoAdapter.getDatas());
+                mDelegate.onClickNinePhotoItem(this, itemView, position, mPhotoAdapter.getItem(position), (ArrayList<String>) mPhotoAdapter.getData());
             }
         }
     }
@@ -194,7 +194,7 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
         private int mImageHeight;
 
         public PhotoAdapter(RecyclerView recyclerView) {
-            super(recyclerView, R.layout.chzz_pp_item_nine_photo);
+            super(recyclerView, R.layout.chzz_pp_item_nine_photo,null,null,null,null);
             mImageWidth = CHZZPhotoPickerUtil.getScreenWidth(recyclerView.getContext()) / 6;
             mImageHeight = mImageWidth;
         }
@@ -242,7 +242,7 @@ public class CHZZSortableNinePhotoLayout extends RecyclerView implements CHZZOnI
 
         @Override
         public boolean isLongPressDragEnabled() {
-            return mIsSortable && mPhotoAdapter.getDatas().size() > 1;
+            return mIsSortable && mPhotoAdapter.getData().size() > 1;
         }
 
         @Override

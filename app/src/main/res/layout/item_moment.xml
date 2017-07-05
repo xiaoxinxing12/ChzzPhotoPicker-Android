@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:layout_marginRight="8dp"
         android:src="@mipmap/avatar"
-        app:bga_iv_isCircle="true" />
+        />
 
     <TextView
         android:id="@+id/tv_item_moment_username"

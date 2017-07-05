@@ -64,7 +64,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         mCurrentClickItemPosition = position;
         if (mDelegate != null) {
-            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getDatas());
+            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getData());
         }
     }
 
@@ -72,7 +72,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
         mCurrentClickItemPosition = position;
         if (mDelegate != null) {
-            return mDelegate.onLongClickNinePhotoItem(this, view, position, mPhotoAdapter.getItem(position), mPhotoAdapter.getDatas());
+            return mDelegate.onLongClickNinePhotoItem(this, view, position, mPhotoAdapter.getItem(position), mPhotoAdapter.getData());
         }
         return false;
     }
@@ -81,7 +81,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
     public void onClick(View view) {
         mCurrentClickItemPosition = 0;
         if (mDelegate != null) {
-            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getDatas());
+            mDelegate.onClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getData());
         }
     }
 
@@ -89,7 +89,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
     public boolean onLongClick(View view) {
         mCurrentClickItemPosition = 0;
         if (mDelegate != null) {
-            return mDelegate.onLongClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getDatas());
+            return mDelegate.onLongClickNinePhotoItem(this, view, mCurrentClickItemPosition, mPhotoAdapter.getItem(mCurrentClickItemPosition), mPhotoAdapter.getData());
         }
         return false;
     }
@@ -109,7 +109,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
         } else if (photos.size() == 1) {
             setVisibility(VISIBLE);
             mPhotoGv.setVisibility(GONE);
-            mPhotoAdapter.setDatas(photos);
+            mPhotoAdapter.setData(photos);
             mPhotoIv.setVisibility(VISIBLE);
 
             mPhotoIv.setMaxWidth(itemWidth * 2);
@@ -136,7 +136,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
                 layoutParams.height = itemWidth * 3;
             }
             mPhotoGv.setLayoutParams(layoutParams);
-            mPhotoAdapter.setDatas(photos);
+            mPhotoAdapter.setData(photos);
         }
     }
 
@@ -145,7 +145,7 @@ public class CHZZNinePhotoLayout extends FrameLayout implements AdapterView.OnIt
     }
 
     public ArrayList<String> getDatas() {
-        return (ArrayList<String>) mPhotoAdapter.getDatas();
+        return (ArrayList<String>) mPhotoAdapter.getData();
     }
 
     public int getItemCount() {

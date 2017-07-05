@@ -1,6 +1,7 @@
 package org.chzz.photo.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,9 +26,10 @@ public class CHZZPhotoPickerAdapter extends CHZZRecyclerViewAdapter<String> {
     private int mImageHeight;
     private boolean mTakePhotoEnabled;
     private Activity mActivity;
+    private Context mContext;
 
     public CHZZPhotoPickerAdapter(Activity activity, RecyclerView recyclerView) {
-        super(recyclerView, R.layout.chzz_pp_item_photo_picker);
+        super(recyclerView, R.layout.chzz_pp_item_photo_picker,null,null,null,null);
         mImageWidth = CHZZPhotoPickerUtil.getScreenWidth(recyclerView.getContext()) / 6;
         mImageHeight = mImageWidth;
         mActivity = activity;
@@ -82,6 +84,6 @@ public class CHZZPhotoPickerAdapter extends CHZZRecyclerViewAdapter<String> {
 
     public void setImageFolderModel(CHZZImageFolderModel imageFolderModel) {
         mTakePhotoEnabled = imageFolderModel.isTakePhotoEnabled();
-        setDatas(imageFolderModel.getImages());
+        setData(imageFolderModel.getImages());
     }
 }

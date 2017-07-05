@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import org.chzz.photo.R;
-import org.chzz.photo.util.CHZZPhotoPickerUtil;
 
 /**
  * 作者:copy 邮件:2499551993@qq.com
@@ -98,9 +97,10 @@ public abstract class CHZZPPToolbarActivity extends AppCompatActivity implements
 
     @Override
     protected void onDestroy() {
-        setContentView(new View(this));
         super.onDestroy();
-        CHZZPhotoPickerUtil.gc();
+        //setContentView(new View(this));
+
+       // CHZZPhotoPickerUtil.gc();
     }
 
     /**

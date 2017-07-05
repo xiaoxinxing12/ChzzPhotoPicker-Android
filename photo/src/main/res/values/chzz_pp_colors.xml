@@ -14,12 +14,12 @@
     <color name="chzz_pp_photo_selected_mask">#4D000000</color>
 
     <!-- 右上角确认按钮不可用时的颜色 -->
-    <color name="chzz_pp_btn_confirm_disabled">#8017C7D1</color>
+    <color name="chzz_pp_btn_confirm_disabled">#348ada</color>
     <!-- 右上角确认按钮可用时的颜色 -->
-    <color name="chzz_pp_btn_confirm_enabled">#17C7D1</color>
+    <color name="chzz_pp_btn_confirm_enabled">#3da1ff</color>
     <!-- 右上角确认按钮按下时的颜色 -->
-    <color name="chzz_pp_btn_confirm_pressed">#CC17C7D1</color>
+    <color name="chzz_pp_btn_confirm_pressed">#3da1ff</color>
     <color name="chzz_pp_loading_progress_startColor">@android:color/white</color>
-    <color name="chzz_pp_loading_progress_centerColor">#17C7D1</color>
-    <color name="chzz_pp_loading_progress_endColor">#CC17C7D1</color>
+    <color name="chzz_pp_loading_progress_centerColor">#3da1ff</color>
+    <color name="chzz_pp_loading_progress_endColor">#348ada</color>
 </resources>
